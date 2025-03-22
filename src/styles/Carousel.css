@@ -1,0 +1,106 @@
+.carrousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.carousel {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+    padding: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap; /* Evita que los elementos se bajen de línea */
+}
+.carousel::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll en Chrome */
+}
+
+.carousel-btn {
+    background : none;
+    border: none;
+}
+ .carousel-btn  {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado verticalmente */
+    justify-content: center; /* Centrado del ícono dentro del span */
+    align-items: center;
+    z-index: 29;
+    cursor: pointer;
+    height: 100%; /* Tamaño fijo para el ícono */
+    border-radius: 50%; /* Hace el botón redondo */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    padding: 5px;
+}
+
+/* Efecto hover para los íconos */
+ .carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro en hover */
+    transform:translateY(-50%) scale(1.1); /* Efecto de escala para agrandar el ícono */
+   
+}
+
+/* Posicionamiento de los íconos */
+ .carousel-btn:first-of-type {
+    left: 10px; /* Ajusta la distancia desde la izquierda */
+}
+
+.carousel-btn:last-of-type {
+    right: 10px; /* Ajusta la distancia desde la derecha */
+}   
+
+.card {
+   
+    width: 250px;
+    height: 350px;
+    cursor: pointer;
+    transition: transform .3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border: var(--primary-color) 3px solid;
+}
+
+.card img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+.card-preview {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, #121212 100%);   
+     opacity: 0;
+
+
+}
+.card:hover .card-preview {
+    opacity: 1;
+}
+.card-preview-info {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+}

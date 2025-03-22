@@ -1,0 +1,168 @@
+
+
+.container-estrenos {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+.estrenos-carousel {
+    width: 100vw;
+    display: flex;
+    flex: 1;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap; /* Evita que los elementos se bajen de línea */
+}
+.estrenos-carousel::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll en Chrome */
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #19e5b8; /* Color activo */
+    width: 20px; /* Para simular el efecto de la imagen */
+    border-radius: 20px;
+}
+.estreno {
+    width: 100vw; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 60vh; 
+    
+}
+.shadow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, #121212 100%);   
+
+}
+.estreno-image {
+    width:100vw;  
+    height: 60vh; 
+    object-fit: cover; 
+  
+}
+.container-estrenos span {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado verticalmente */
+    justify-content: center; /* Centrado del ícono dentro del span */
+    align-items: center;
+    z-index: 29;
+    cursor: pointer;
+    height: 100%; /* Tamaño fijo para el ícono */
+    border-radius: 50%; /* Hace el botón redondo */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    padding: 5px;
+}
+
+/* Efecto hover para los íconos */
+.container-estrenos span:hover {
+    transform:translateY(-50%) scale(1.1); /* Efecto de escala para agrandar el ícono */
+   
+}
+
+/* Posicionamiento de los íconos */
+.container-estrenos span:first-of-type {
+    left: 10px; /* Ajusta la distancia desde la izquierda */
+}
+
+.container-estrenos span:last-of-type {
+    right: 10px; /* Ajusta la distancia desde la derecha */
+} 
+
+
+.estreno-description {
+    z-index: 1; 
+    color: white;
+    text-align: center;
+    font-size: 24px;
+   overflow-wrap: break-word;
+   max-width: 40%;
+    border-radius: 10px;
+    text-align: start;
+
+    position: absolute;
+    left: 4%;
+    bottom: 13%;
+
+}
+
+.ver-mas-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+   width: 148px;
+   height: 48px;
+    border: none;
+    background: var(--primary-color);
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    left: 4%;
+    bottom: 5%;
+    align-items: center;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+ 
+}
+    .ver-mas-button:hover {
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3); /* Sombras suaves */
+    }
+
+
+
+
+/* Loading and Error States */
+.loading, .error {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+    color: #ff0000;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carrousel {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        width: 180px;
+        height: 270px;
+    }
+}

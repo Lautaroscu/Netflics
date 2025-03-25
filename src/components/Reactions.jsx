@@ -24,7 +24,7 @@ export default function Reactions() {
         <div class="reactions">
             <span onClick={() => handleReaction(<LikedIcon />)}><LikedIcon /></span>
             <span onClick={() => handleReaction(<UnLikedIcon />)}><UnLikedIcon /></span>
-            <span onClick={() => handleReaction(<img src={ScaredImage} alt="scared" />)}><img onCl src={ScaredImage} alt="scared" /></span>
+            <span onClick={() => handleReaction(<img src={ScaredImage} alt="scared" />)}><img  src={ScaredImage} alt="scared" /></span>
             <span onClick={() => handleReaction(<img src={LovedImage} alt="loved" />)}><img src={LovedImage} alt="loved" /></span>
             <span onClick={() => handleReaction(<img src={BoredImage} alt="bored" />)}><img src={BoredImage} alt="bored" /></span>
         </div>

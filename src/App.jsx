@@ -9,11 +9,14 @@ import { Movie } from './pages/Movie';
 import { Series } from './pages/Series';
 import { Serie } from './pages/Serie';
 import { LoginPage } from './pages/Login';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
   localStorage.setItem("isAuthenticated" , false)
   const {isAuthenticated} = localStorage.getItem("isAuthenticated")
   return (
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+
     <Router>
       <div className="app">
        <Header isLoggedin={isAuthenticated} /> 
@@ -27,6 +30,8 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </GoogleOAuthProvider>
+
   );
 }
 

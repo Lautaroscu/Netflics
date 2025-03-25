@@ -2,7 +2,7 @@ import { FacebookIcon, GoogleIcon } from "../icons";
 import Logo from "/src/assets/images/logo.png";
 import { useState } from "react";
 import "../styles/Login.css";
-import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import { ClipLoader } from "react-spinners";
 
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,8 @@ export function LoginPage({handleAuthenticate}) {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false); 
   const [isSuccess, setIsSuccess] = useState(false); // Nuevo estado para éxito
+
+
 
 
    const navigate = useNavigate()
@@ -58,9 +60,17 @@ export function LoginPage({handleAuthenticate}) {
     const base64Url = credentialResponse.credential.split(".")[1];
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const userData = JSON.parse(window.atob(base64));
-    console.log("User Data:", userData);
     setUser(userData);
+    setTimeout(()=> {} , 3000)
+    navigate("/")
   };
+  const hanldeGoogleLogin = () => {
+    const client = useGoogleLogin({
+      client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+      callback: handleGoogleSuccess,
+    });
+    client.requestAccessToken();
+  }
 
   return (
     <div className="login-page">
@@ -70,21 +80,13 @@ export function LoginPage({handleAuthenticate}) {
       
         <form onSubmit={handleSubmit} className="login-form">
         <div className="continue-with-container">
-           <GoogleLogin
-            onSuccess={handleGoogleSuccess}
-            onError={() => console.log("Login Failed")}
-            useOneTap
-            theme="outline" // Opcional: puedes cambiar el tema
-            shape="rectangular" // Forma del botón
-            render={(renderProps) => ( 
+       
               <button 
-              
+                onClick={hanldeGoogleLogin}
                 className="continue"
               >
                 <GoogleIcon /> Continuar con Google
               </button>
-            )} 
-           /> 
           <button className="continue">
             <FacebookIcon /> Continuar con Facebook
           </button>

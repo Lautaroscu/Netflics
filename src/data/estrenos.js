@@ -9,7 +9,7 @@ export const estrenos = [
         director : "Edward Berger"
     } ,
     {
-        image : "./src/assets/images/mm.jpg" ,
+        image : "/src/assets/images/mm.jpg" ,
         description : "Multipremiada serie del productor y guionista de Los Soprano. Explora la era dorada de la publicidad en la década del 60 en Nueva York." ,
         duration : "7 temporadas" ,
         release_date : "2007" ,
@@ -20,7 +20,7 @@ export const estrenos = [
 
     },
     {
-        image : "./src/assets/images/elc.jpg" ,
+        image : "/src/assets/images/elc.jpg" ,
         description : "Mamá Cora, el entrañable personaje de Antonio Gasalla, se enfrenta al dilema familiar sobre quién se hará cargo de ella." ,
         duration : "1 h 34 min" ,
         release_date : "1985 " ,
@@ -31,7 +31,7 @@ export const estrenos = [
 
     },
     {
-        image : "./src/assets/images/ST.jpg" ,
+        image : "/src/assets/images/ST.jpg" ,
         description : "Las cosas se complican para Jessie cuando descubre que el chico con quien pasó la noche en la víspera de año nuevo es una estrella de cine." ,
         duration : "2 temporadas" ,
         release_date : "2021 " ,

@@ -25,7 +25,7 @@ function App() {
 
 <Router>
       <div className="app">
-        <Header />
+        <Header isLoggedin={isAuthenticated} />
         <Routes>
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
           <Route path="/login" element={<LoginPage handleAuthenticate={setIsAuthenticated} />} />

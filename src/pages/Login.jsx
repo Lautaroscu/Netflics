@@ -80,7 +80,7 @@ export function LoginPage({handleAuthenticate}) {
            
        
 
-              <button 
+              <button type="button"
               onClick={()=> handleGoogleLogin()}
                 className="continue"
               >

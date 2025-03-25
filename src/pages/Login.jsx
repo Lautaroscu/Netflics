@@ -2,7 +2,7 @@ import { FacebookIcon, GoogleIcon } from "../icons";
 import Logo from "/src/assets/images/logo.png";
 import { useState } from "react";
 import "../styles/Login.css";
-import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from '@react-oauth/google';
 import { ClipLoader } from "react-spinners";
 
 import { useNavigate } from "react-router-dom";
@@ -59,9 +59,15 @@ export function LoginPage({handleAuthenticate}) {
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const userData = JSON.parse(window.atob(base64));
     setUser(userData);
-    setTimeout(()=> {} , 3000)
-    navigate("/")
   };
+  const handleGoogleLogin = useGoogleLogin(
+    {
+      onSuccess : tokenResponse => handleGoogleSuccess(tokenResponse)
+    }
+  )
+
+
+  
 
   return (
     <div className="login-page">
@@ -71,22 +77,17 @@ export function LoginPage({handleAuthenticate}) {
       
         <form onSubmit={handleSubmit} className="login-form">
         <div className="continue-with-container">
-           <GoogleLogin
-            onSuccess={handleGoogleSuccess}
-            onError={() => console.log("Login Failed")}
-            useOneTap
-            buttonText="Continuar con Google"
+           
+       
 
-            render={(renderProps) => ( 
               <button 
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
+              onClick={()=> handleGoogleLogin()}
                 className="continue"
               >
                 <GoogleIcon /> Continuar con Google
               </button>
-            )} 
-           /> 
+            
+           
           <button className="continue">
             <FacebookIcon /> Continuar con Facebook
           </button>

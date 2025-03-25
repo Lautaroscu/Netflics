@@ -1,4 +1,4 @@
-import CC from "./src/assets/images/cc.jpg"
+import CC from "/src/assets/images/cc.jpg"
 import MM from  "/src/assets/images/mm.jpg" 
 import ELC from "/src/assets/images/elc.jpg" 
 import ST from "/src/assets/images/ST.jpg" 

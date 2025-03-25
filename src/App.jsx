@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-       {isAuthenticated &&  <Header isLoggedin={isAuthenticated} /> }
+       <Header isLoggedin={isAuthenticated} /> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route  path='/login' element={<LoginPage />}/>

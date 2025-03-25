@@ -25,9 +25,7 @@ export function Home() {
     useEffect(() => {
         getUpcomingMovies()
     },[])
-    if (loading) {
-        return <div className="loading">Cargando...</div>
-    }
+    
 
     if (error) {
         return <div className="error">Hubo un error al cargar las películas.</div>

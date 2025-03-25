@@ -3,11 +3,53 @@ import Logo from "/src/assets/images/logo.png";
 import { useState } from "react";
 import "../styles/Login.css";
 import { GoogleLogin } from "@react-oauth/google";
+import { ClipLoader } from "react-spinners";
 
-export function LoginPage({ handleSubmit }) {
+import { useNavigate } from "react-router-dom";
+
+export function LoginPage({handleAuthenticate}) {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false); 
+  const [isSuccess, setIsSuccess] = useState(false); // Nuevo estado para éxito
 
+
+   const navigate = useNavigate()
+
+
+   const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    // Establecer el estado de loading
+    setIsLoading(true);
+  
+    // Guardar el email y la contraseña (asegúrate de que están definidos correctamente)
+    setUser({ email, password });
+  
+    // Llamar al método de autenticación (asumimos que handleAuthenticate maneja la lógica de autenticación)
+    handleAuthenticate(true);
+  
+    // Aquí usamos un solo setTimeout para manejar todo
+    setTimeout(() => {
+      // Detener el loading
+      setIsLoading(false);
+  
+      // Mostrar mensaje de éxito
+      setIsSuccess(true);
+  
+      // Ocultar el mensaje de éxito después de 3 segundos
+      setTimeout(() => {
+        setIsSuccess(false);
+        // Redirigir a la página principal ("/")
+        navigate("/");
+      }, 3000); // Duración del mensaje de éxito
+    }, 3000); // Tiempo de espera para simular la carga
+  }
+  
+ 
+  
   const handleGoogleSuccess = (credentialResponse) => {
     console.log("Credential:", credentialResponse);
     setToken(credentialResponse.credential); // Token JWT
@@ -25,25 +67,24 @@ export function LoginPage({ handleSubmit }) {
       <img src={Logo} alt="logo" />
 
       <h1>Inicia sesión en Netflics</h1>
-      <form onSubmit={handleSubmit} className="login-form">
+      
+        <form onSubmit={handleSubmit} className="login-form">
         <div className="continue-with-container">
-          {/* Botón de Google */}
-          <GoogleLogin
+          {/* <GoogleLogin
             onSuccess={handleGoogleSuccess}
             onError={() => console.log("Login Failed")}
             useOneTap
             theme="outline" // Opcional: puedes cambiar el tema
             shape="rectangular" // Forma del botón
-            render={(renderProps) => (
+            render={(renderProps) => ( */}
               <button 
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
+              
                 className="continue"
               >
                 <GoogleIcon /> Continuar con Google
               </button>
-            )}
-          />
+            {/* )} */}
+          {/* /> */}
           <button className="continue">
             <FacebookIcon /> Continuar con Facebook
           </button>
@@ -51,11 +92,11 @@ export function LoginPage({ handleSubmit }) {
         </div>
         <div className="input-container">
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" />
+          <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" />
         </div>
         <div className="input-container">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" />
+          <input  onChange={(e) => setPassword(e.target.value)} type="password" name="password" />
         </div>
         <div className="recordame-container">
           <div>
@@ -64,11 +105,22 @@ export function LoginPage({ handleSubmit }) {
           </div>
           <p>¿Olvidaste tu contraseña?</p>
         </div>
+        {isSuccess ? ( 
+          <div className="success-message">
+          <span className="checkmark">&#10003;</span> Autenticación exitosa
+        </div>
+      ) : (
+        <button className={`continuar ${isLoading}`} type="submit">
 
-        <button className="continuar" type="submit">
-          Continuar
+          Continuar {isLoading && <ClipLoader color="white" loading={isLoading} size={30} />
+        }
         </button>
+)}
       </form>
+      
+
+      
+      
 
       <p>
         ¿No tienes cuenta? <span>Suscríbete a Netflics</span>

@@ -3,29 +3,35 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import { Header } from './components/layout/Header';
 import { Home } from './pages/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Movie } from './pages/Movie';
 import { Series } from './pages/Series';
 import { Serie } from './pages/Serie';
 import { LoginPage } from './pages/Login';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { useState , useEffect } from "react";
+
 
 function App() {
-  localStorage.setItem("isAuthenticated" , false)
-  const {isAuthenticated} = localStorage.getItem("isAuthenticated")
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('isAuthenticated', isAuthenticated);
+  }, [isAuthenticated]);
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
 
-    <Router>
+<Router>
       <div className="app">
-       <Header isLoggedin={isAuthenticated} /> 
+        <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route  path='/login' element={<LoginPage />}/>
-          <Route path="/series" element={<Series />} />
-          <Route path="series/serie/:id" element={<Serie />} />
-
-          <Route path="/movie/:id" element={<Movie />} />
+          <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/login" element={<LoginPage handleAuthenticate={setIsAuthenticated} />} />
+          <Route path="/series" element={isAuthenticated ? <Series /> : <Navigate to="/login" />} />
+          <Route path="series/serie/:id" element={isAuthenticated ? <Serie /> : <Navigate to="/login" />} />
+          <Route path="/movie/:id" element={isAuthenticated ? <Movie /> : <Navigate to="/login" />} />
         </Routes>
       </div>
     </Router>

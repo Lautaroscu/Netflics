@@ -109,6 +109,9 @@
 }
 
 .continuar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--primary-color);
     color: #fff;
     border: none;
@@ -117,8 +120,13 @@
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
+    gap: 8px;
     transition: background-color 0.3s;
 }
+
+
+  
+
 
 .continuar:hover {
     box-shadow: 0 0 2px #00cfff, 0 0 10px #00cfff;
@@ -150,5 +158,20 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  .success-message {
+    font-size: 24px;
+    color: #41FF9F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .checkmark {
+    font-size: 36px;
+    color: #41FF9F;
   }
   

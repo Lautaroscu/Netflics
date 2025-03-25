@@ -70,21 +70,21 @@ export function LoginPage({handleAuthenticate}) {
       
         <form onSubmit={handleSubmit} className="login-form">
         <div className="continue-with-container">
-          {/* <GoogleLogin
+           <GoogleLogin
             onSuccess={handleGoogleSuccess}
             onError={() => console.log("Login Failed")}
             useOneTap
             theme="outline" // Opcional: puedes cambiar el tema
             shape="rectangular" // Forma del botón
-            render={(renderProps) => ( */}
+            render={(renderProps) => ( 
               <button 
               
                 className="continue"
               >
                 <GoogleIcon /> Continuar con Google
               </button>
-            {/* )} */}
-          {/* /> */}
+            )} 
+           /> 
           <button className="continue">
             <FacebookIcon /> Continuar con Facebook
           </button>

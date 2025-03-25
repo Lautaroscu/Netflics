@@ -1,11 +1,15 @@
 #root {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    
 }
 .app {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
     width: 100%;
+    justify-content: center;
+    margin-top: 90px
+    
 }

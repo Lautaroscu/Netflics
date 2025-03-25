@@ -1,0 +1,59 @@
+.like-container {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    margin-left: 20px;
+    z-index: 100;
+    cursor: pointer;
+  }
+  
+  .reactions {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 100%; /* Se muestra arriba */
+    left: 50%;
+   
+    transform: translateX(5%);
+    background: #000;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    color: white;
+    gap: 15px;
+  }
+  .like-container span {
+    height: 40px;
+    width: 40%;
+  }
+  .like-container img  {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .reactions span {
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  .like-container:hover .reactions {
+    display: flex;
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-15px);
+    }
+    60% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  .bounce {
+    animation: bounce 0.6s;
+  }
+  
+  

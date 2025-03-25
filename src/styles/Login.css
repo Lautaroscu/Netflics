@@ -1,0 +1,153 @@
+.login-page {
+    background-color: #111;
+    color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 100px;
+}
+
+.login-page img {
+    width: 180px;
+    height: 120px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.login-page h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.continue-with-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.continue-with-container button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 99px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.continue-with-container button img {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    margin: 0;
+}
+
+.continue-with-container button:hover {
+    background-color: #222;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-container label {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.input-container label::after {
+    content: "*";
+    color: red;
+    margin-left: 4px;
+   
+}
+
+.input-container input {
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 99px;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    height: 25px;
+
+}
+
+.recordame-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.recordame-container label {
+    margin-left: 5px;
+}
+
+.login-form p {
+    text-align: right;
+    font-size: 14px;
+    color: #aaa;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.login-form p:hover {
+    text-decoration: underline;
+}
+
+.continuar {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.continuar:hover {
+    box-shadow: 0 0 2px #00cfff, 0 0 10px #00cfff;
+  }
+
+.login-page > p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.login-page > p span {
+    color: #00bfff;
+    cursor: pointer;
+}
+
+.login-page > p span:hover {
+    text-decoration: underline;
+}
+.login-form {
+    animation: fadeIn 1s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

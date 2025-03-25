@@ -1,19 +1,29 @@
-
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 40px 0 40px;
+    
+}
 
 .container-estrenos {
     display: flex;
     flex-direction: row;
     width: 100vw;
+    margin-top: -100px;
     overflow: hidden;
     position: relative;
+    
 }
+
 .estrenos-carousel {
     width: 100vw;
+    height: 60vh;
     display: flex;
     flex: 1;
     overflow-x: auto;
     scroll-behavior: smooth;
-    white-space: nowrap; /* Evita que los elementos se bajen de línea */
 }
 .estrenos-carousel::-webkit-scrollbar {
     display: none; /* Oculta la barra de scroll en Chrome */
@@ -51,6 +61,7 @@
     justify-content: center;
     position: relative;
     min-height: 60vh; 
+
     
 }
 .shadow {
@@ -98,15 +109,14 @@
 
 
 .estreno-description {
+
     z-index: 1; 
     color: white;
     text-align: center;
     font-size: 24px;
-   overflow-wrap: break-word;
-   max-width: 40%;
-    border-radius: 10px;
-    text-align: start;
 
+    max-width: 40%;
+    text-align: start;
     position: absolute;
     left: 4%;
     bottom: 13%;
@@ -115,7 +125,6 @@
 
 .ver-mas-button {
     display: flex;
-    align-items: center;
     justify-content: center;
     gap: 10px;
     font-weight: bold;
@@ -132,6 +141,8 @@
     bottom: 5%;
     align-items: center;
     transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 4px;
+    padding: 0;
 
  
 }

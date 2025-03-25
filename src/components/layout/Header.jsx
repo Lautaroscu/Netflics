@@ -1,5 +1,7 @@
 import { MiListaIcon, ProfileIcon, SearchIcon } from "../../icons"
+import { Link } from "react-router-dom";
 import { useState , useEffect } from "react";
+import Logo from "/src/assets/images/logo.png"
 import "../../styles/Header.css"
 export function Header({isLoggedin}) {
     const [scrolled, setScrolled] = useState(false);
@@ -15,15 +17,15 @@ export function Header({isLoggedin}) {
   if(!isLoggedin) {
         return (
             <header className={`header ${scrolled ? "scrolled" : ""}`}>
-                <img className="logo" src="./src/assets/image.png" alt="logo" />
+                <img className="logo" src={Logo} alt="logo" />
                 <nav className="header-nav">
                     <ul>
-                        <li>Inicio</li>
-                        <li>Guia de TV</li>
-                        <li>Deportes</li>
-                        <li>Peliculas</li>
-                        <li>Series</li>
-                        <li>Explorar Novedades</li>
+                        <li><Link to={"/"}>Inicio</Link></li>
+                        <li><Link>Guia de TV</Link></li>
+                        <li><Link to={"/sports"}>Deportes</Link></li>
+                        <li><Link to={"/movies"}>Peliculas</Link></li>
+                        <li><Link to={"/series"}>Series</Link></li>
+                        <li><Link>Explorar Novedades</Link></li>
                     </ul>
                 </nav>
                     <ul className="icons-section">

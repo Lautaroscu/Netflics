@@ -1,0 +1,103 @@
+.movie-page {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+      height: 100%;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #000;
+    color: white;
+    margin-top: 30px;
+}
+
+.movie-content {
+
+  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start ;
+    gap: 30px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+   margin-left: 10%;
+    
+}
+
+.image {
+   width: 300px;
+   height: 450px ;
+   object-fit: cover;
+
+}
+
+.movie-info {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.movie-info h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.movie-duration {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.movie-description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.movie-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.play-button,
+.add-list-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.play-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.add-list-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Sección de sugerencias */
+.suggestions {
+    
+    padding: 20px;
+}
+
+.suggestions h2 {
+    margin-bottom: 10px;
+}
+
+.suggestions-list {
+    display: flex;
+    gap: 10px;
+}
+
+.suggestion-item {
+    width: 150px;
+    height: 200px;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+

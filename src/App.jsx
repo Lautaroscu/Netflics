@@ -1,19 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Header } from './components/layout/Header'
-import { HomeEstrenoPromocionado } from './pages/HomeEstreno'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { Header } from './components/layout/Header';
+import { Home } from './pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Movie } from './pages/Movie';
+import { Series } from './pages/Series';
+import { Serie } from './pages/Serie';
+import { LoginPage } from './pages/Login';
 
 function App() {
-return (
-  <div className='app'>
-<Header isLoggedin={false}/>
-<HomeEstrenoPromocionado />
-  </div>
-  
-)
+  localStorage.setItem("isAuthenticated" , false)
+  const {isAuthenticated} = localStorage.getItem("isAuthenticated")
+  return (
+    <Router>
+      <div className="app">
+       {isAuthenticated &&  <Header isLoggedin={isAuthenticated} /> }
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route  path='/login' element={<LoginPage />}/>
+          <Route path="/series" element={<Series />} />
+          <Route path="series/serie/:id" element={<Serie />} />
 
+          <Route path="/movie/:id" element={<Movie />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;

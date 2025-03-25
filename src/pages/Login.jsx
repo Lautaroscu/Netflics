@@ -52,13 +52,13 @@ export function LoginPage({handleAuthenticate}) {
   
   const handleGoogleSuccess = (credentialResponse) => {
     console.log("Credential:", credentialResponse);
-    setToken(credentialResponse.access_token); // Token JWT
+    // setToken(credentialResponse.access_token); // Token JWT
 
-    // Podés decodificarlo si querés ver el usuario (opcional)
-    const base64Url = token?.split(".")[1];
-    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    const userData = JSON.parse(window.atob(base64));
-    setUser(userData);
+    // // Podés decodificarlo si querés ver el usuario (opcional)
+    // const base64Url = credentialResponse.access_token.split(".")[1];
+    // const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    // const userData = JSON.parse(window.atob(base64));
+    // setUser(userData);
     handleAuthenticate(true)
     navigate("/")
     

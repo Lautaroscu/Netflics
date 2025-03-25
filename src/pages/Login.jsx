@@ -59,6 +59,7 @@ export function LoginPage({handleAuthenticate}) {
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const userData = JSON.parse(window.atob(base64));
     setUser(userData);
+    handleAuthenticate(true)
   };
   const handleGoogleLogin = useGoogleLogin(
     {

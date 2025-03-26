@@ -34,7 +34,7 @@ function App() {
           <Route path="/" element={isAuthenticated ? <Home /> : <PricingPage to="/login" />} />
           <Route path="*" element={<Navigate to="/login" />} />
 
-          <Route path="/login" element={<LoginPage handleAuthenticate={setIsAuthenticated} />} />
+          <Route path="/login" element={<LoginPage setShowHeader={setShowHeader} handleAuthenticate={setIsAuthenticated} />} />
           <Route path="/series" element={isAuthenticated ? <Series /> : <Navigate to="/login" />} />
           <Route path="/serie/:id" element={isAuthenticated ? <Serie /> : <Navigate to="/login" />} />
           <Route path="/movie/:id" element={isAuthenticated ? <Movie /> : <Navigate to="/login" />} />

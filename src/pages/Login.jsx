@@ -1,19 +1,24 @@
 import { FacebookIcon, GoogleIcon } from "../icons";
 import Logo from "/src/assets/images/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Login.css";
 import { useGoogleLogin } from '@react-oauth/google';
 import { ClipLoader } from "react-spinners";
 
 import { useNavigate } from "react-router-dom";
 
-export function LoginPage({handleAuthenticate}) {
+export function LoginPage({handleAuthenticate , setShowHeader}) {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false); 
   const [isSuccess, setIsSuccess] = useState(false); // Nuevo estado para éxito
-
+useEffect(() => {
+  setShowHeader(false)
+   return () => {
+    setShowHeader(true);
+};
+})
 
    const navigate = useNavigate()
 

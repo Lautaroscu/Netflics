@@ -41,7 +41,7 @@ export default function Carousel({ items , title , media_type , renderItem}) {
                                               alt={item.title} 
                                               aria-label={`Poster de ${item.title}`}
                                           />
-                                          <div onClick={() => navigate(`${media_type}/${item.id}`)} className="card-preview">
+                                          <div onClick={() => navigate(`/${media_type}/${item.id}`)} className="card-preview">
                                               <PlayIcon />
                                               <div className="card-preview-info">
                                               <h3>{media_type.toUpperCase()} +{Math.floor(Math.random() * 3) + 14}</h3>

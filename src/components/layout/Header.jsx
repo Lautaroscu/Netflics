@@ -41,7 +41,7 @@ export function Header({ show }) {
             
             
                
-        <MenuProfile user_name={"Pepito"} open={open}/>
+        <MenuProfile setOpen={setOpen} user_name={"Pepito"} open={open}/>
 
         </header>
     )

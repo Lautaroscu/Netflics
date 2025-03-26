@@ -1,7 +1,7 @@
 
 const logougt = () => {
     localStorage.clear()
-    window.location.href = "/login"
+    window.location.href = "/"
     
 }
 export default logougt;

@@ -43,8 +43,8 @@ export function LoginPage({handleAuthenticate}) {
         setIsSuccess(false);
         // Redirigir a la página principal ("/")
         navigate("/");
-      }, 3000); // Duración del mensaje de éxito
-    }, 3000); // Tiempo de espera para simular la carga
+      }, 1000); // Duración del mensaje de éxito
+    }, 2000); // Tiempo de espera para simular la carga
   }
   
  
@@ -83,18 +83,18 @@ export function LoginPage({handleAuthenticate}) {
               </button>
             
            
-          <button className="continue">
+          <button type="button" className="continue">
             <FacebookIcon /> Continuar con Facebook
           </button>
-          <button className="continue">Continuar con número de teléfono</button>
+          <button type="button" className="continue">Continuar con número de teléfono</button>
         </div>
         <div className="input-container">
           <label htmlFor="email">Email</label>
-          <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" />
+          <input onChange={(e) => setEmail(e.target.value)} required type="text" name="email" />
         </div>
         <div className="input-container">
           <label htmlFor="password">Password</label>
-          <input  onChange={(e) => setPassword(e.target.value)} type="password" name="password" />
+          <input  onChange={(e) => setPassword(e.target.value)} required type="password" name="password" />
         </div>
         <div className="recordame-container">
           <div>

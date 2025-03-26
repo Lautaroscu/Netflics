@@ -1,0 +1,71 @@
+.planes-container {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;
+    gap: 40px; 
+}
+
+.plan {
+    background: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    height: 500px;
+    text-align: left; 
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.price span {
+    font-size: 16px;
+    vertical-align: middle;
+    color: #aaa;
+}
+
+.plan button {
+    background: #6b46c1;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.plan button:hover {
+    background: #553c9a;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    height: 60%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+}
+
+.check-icon {
+    color: #a076f9;
+    font-size: 18px;
+}
+
+.cross-icon {
+    color: #ff4c4c;
+    font-size: 18px;
+}

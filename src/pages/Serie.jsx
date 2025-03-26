@@ -16,6 +16,8 @@ export function Serie() {
     const { serie, getSerie, error, loading } = useSerie();
     const { details, getDetails } = useSeasonDetails()
     const [currentSeason, setCurrentSeason] = useState(1)
+    const [activeTab, setActiveTab] = useState(1); 
+
     const { title, number_of_seasons, poster_path, overview, genres, popularity, first_air_date, vote_average, seasons } = serie;
 
 
@@ -59,9 +61,9 @@ export function Serie() {
                 </div>
             </div>
             <div className="serie-navigation">
-                <button>Episodios</button>
-                <button>Sugerencias</button>
-                <button>Detalles</button>
+                <button  className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>Episodios</button>
+                <button className={activeTab === 2 ? "active" : "" }onClick={() => setActiveTab(2)}>Sugerencias</button>
+                <button className={activeTab === 3 ? "active" : "" } onClick={() => setActiveTab(3)}>Detalles</button>
 
             </div>
             <section className="seasons-container">
@@ -84,15 +86,17 @@ export function Serie() {
                     items={details?.episodes}
                     renderItem={({ still_path: chapter_poster, episode_number, overview: chapter_overview, runtime: chapter_runtime, air_date, name }) => (
                         <div className="chapter" key={episode_number}>
-                            
-                            <img src={`${env.IMAGE_URL}/${chapter_poster}`} alt={name} />
-                            <div className="progress"></div>
-                            <p className="chapter-head">S{currentSeason}. Episodio {episode_number} | {formatRuntime(chapter_runtime)} | {air_date}</p>
-
-                            <small className="chapter-overwiew">
-                                {chapter_overview}
-                            </small>
-                        </div>
+                        <img src={`${env.IMAGE_URL}/${chapter_poster}`} alt={name} />
+                        
+                        <p className="chapter-head">
+                            S{currentSeason}. Episodio {episode_number} | {formatRuntime(chapter_runtime)} | {air_date}
+                        </p>
+                    
+                        <small className="chapter-overview">
+                            {chapter_overview}
+                        </small>
+                    </div>
+                    
                     )}
                 />
 

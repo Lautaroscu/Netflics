@@ -19,10 +19,10 @@ button {
     border-radius: 0px;
 
 }
-.serie-navigation button:focus {
-   border-bottom: 2px solid var(--primary-color);
-
+.serie-navigation button.active {
+    border-bottom: 2px solid var(--primary-color);
 }
+
 .seasons-container {
     display: flex;
     justify-content: center;
@@ -57,46 +57,46 @@ button {
 
 .chapter {
     flex: 0 0 270px;
-    height: 300px;
-    width: 300px;
+    width: 270px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: #1e1e1e;
     border-radius: 8px;
     overflow: hidden;
-   
+    padding-bottom: 10px;
+    transition: transform .2s ;
+}
+
+.chapter:hover {
+    transform: scale(1.05); /* Efecto hover */
+    border: var(--primary-color) 3px solid;
+    cursor: pointer;
+
 }
 
 .chapter img {
     width: 100%;
-    height: 70% ;                  
+    height: 160px;
     object-fit: cover;
-    border-radius: 8px;
-
+    border-radius: 8px 8px 0 0;
 }
-    .chapter-overwiew {
-        display: block;
-    width: 90%;                /* Asegúrate de que el contenedor tenga un ancho definido */
-    overflow: hidden;           /* Esconde cualquier contenido que se desborde */
-    white-space: normal;        /* Permite que el texto se divida en varias líneas */
-    overflow-wrap: break-word;  /* Rompe palabras largas si es necesario */
-    text-overflow: ellipsis;    /* Añade los puntos suspensivos cuando el texto sea demasiado largo */
-    padding: 8px;
-    color: #8c8c8c;
-    line-height: 1.4;           /* Ajusta el espacio entre líneas */
-    display: -webkit-box;       /* Necesario para el uso de -webkit-line-clamp */
-    -webkit-line-clamp: 3;      /* Limita el número de líneas a 3 (puedes ajustar este valor) */
-    -webkit-box-orient: vertical; /* Asegura que el texto se apile verticalmente */
-}
-    
-
-
 
 .chapter .chapter-head {
     font-size: 14px;
     color: #fff;
+    font-weight: bold;
+    margin: 8px 12px 4px 12px; /* Espaciado */
+    text-align: left;
+}
+
+.chapter-overview {
+    width: 90%;
+    padding: 0 12px 8px;
+    color: #8c8c8c;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left; /* Alinear texto a la izquierda */
 }
 
 

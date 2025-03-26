@@ -10,6 +10,7 @@ import { Serie } from './pages/Serie';
 import { LoginPage } from './pages/Login';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useState , useEffect } from "react";
+import PricingPage from './pages/Pricing';
 
 
 function App() {
@@ -25,13 +26,16 @@ function App() {
 
 <Router>
       <div className="app">
-        <Header isLoggedin={isAuthenticated} />
+       {isAuthenticated && <Header  />} 
         <Routes>
-          <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/" element={isAuthenticated ? <Home /> : <PricingPage to="/login" />} />
+          <Route path="*" element={<Navigate to="/login" />} />
+
           <Route path="/login" element={<LoginPage handleAuthenticate={setIsAuthenticated} />} />
           <Route path="/series" element={isAuthenticated ? <Series /> : <Navigate to="/login" />} />
           <Route path="series/serie/:id" element={isAuthenticated ? <Serie /> : <Navigate to="/login" />} />
           <Route path="/movie/:id" element={isAuthenticated ? <Movie /> : <Navigate to="/login" />} />
+          <Route path='/pricing' element={<PricingPage  />}/>
         </Routes>
       </div>
     </Router>

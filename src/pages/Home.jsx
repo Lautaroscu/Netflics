@@ -5,6 +5,7 @@ import Carousel from "../components/Carrousel"
 import useTopRatedMovies from "../hooks/movies/useTopRatedMovies"
 import useUpcomingMovies from "../hooks/movies/useUpcomingMovies"
 import { HomeEstrenoPromocionado } from "./HomeEstreno"
+import Skeleton from "react-loading-skeleton"
 
 
 
@@ -12,8 +13,8 @@ import { HomeEstrenoPromocionado } from "./HomeEstreno"
 
 export function Home() {
     const { movies, getMovies, error, loading } = useTrendingMovies()
-    const {topRatedMovies ,  getTopRatedMovies  } = useTopRatedMovies()
-    const {upcomingMovies ,getUpcomingMovies } = useUpcomingMovies()
+    const {topRatedMovies ,  getTopRatedMovies, loading : topRatedLoading   } = useTopRatedMovies()
+    const {upcomingMovies ,getUpcomingMovies , loading : upComingLoading } = useUpcomingMovies()
     
     
     useEffect(() => {
@@ -30,27 +31,38 @@ export function Home() {
     if (error) {
         return <div className="error">Hubo un error al cargar las películas.</div>
     }
+    const renderCarouselSkeleton = () =>  (
+        <div className="carouseles-skeletons">
+            <Skeleton variant="text" width={200} />
+          <Skeleton variant="rectangular" width={1200} height={350} />
+          <Skeleton variant="rectangular" width={1200} height={350} />
+          <Skeleton variant="rectangular" width={1200} height={350} />
+        </div>
+          
+        
+      );
+      
 
     return (
         <main>
           <HomeEstrenoPromocionado />
-     
-              <Carousel items={movies}
+      {loading ? renderCarouselSkeleton() : <Carousel items={movies}
                title={"Trending movies"}
                media_type={"movie"}
-              />
-                
-              <Carousel items={topRatedMovies}
+              /> }
+             
+                {topRatedLoading ? renderCarouselSkeleton() : <Carousel items={topRatedMovies}
               title={"Top rated movies"}
               media_type={"movie"}
-              />
+              /> }
+             
               
 
-                 
-                <Carousel items={upcomingMovies}
+                 {upComingLoading ? renderCarouselSkeleton() :  <Carousel items={upcomingMovies}
                 title={"Upcoming movies"}
                 media_type={"movie"}
-                />
+                />}
+               
                    
                 
               

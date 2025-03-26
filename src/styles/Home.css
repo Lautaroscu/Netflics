@@ -6,7 +6,14 @@ main {
     padding: 0px 40px 0 40px;
     
 }
-
+.carouseles-skeletons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+}
 .container-estrenos {
     display: flex;
     flex-direction: row;
@@ -147,7 +154,8 @@ main {
  
 }
     .ver-mas-button:hover {
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3); /* Sombras suaves */
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3); 
+        background: #005f6b ; 
     }
 
 

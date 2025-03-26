@@ -5,6 +5,7 @@ import "../styles/Header.css"
 import Logo from "/src/assets/images/logo.png"
 import "../styles/Account.css"
 import { MenuProfile } from "../components/layout/MenuProfile";
+import logougt from "../utils/Logout";
 
 
 export function AccountPage({ setShowHeader }) {
@@ -18,7 +19,7 @@ export function AccountPage({ setShowHeader }) {
         <><header className="header">
             <div className="header-cont">
                 <img src={Logo} className="logo" alt="logo" />
-                <button className="log-out-button"><Link to={"/logout"}> <LogoutIcon /> Cerrar sesion</Link></button>
+                <button onClick={ () => logougt()} className="log-out-button"> <LogoutIcon /> Cerrar sesion</button>
             </div>
 
         </header>

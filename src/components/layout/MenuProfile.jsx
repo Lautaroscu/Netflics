@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { LogoutIcon, PencilIcon, Toggleicon } from "../../icons";
 import "../../styles/MenuProfile.css"
 import { useNavigate } from "react-router-dom";
+import Logout from "../../utils/Logout";
+import logougt from "../../utils/Logout";
 export function MenuProfile({user_name , open , setOpen}) {
    const navigate =  useNavigate()
 useEffect(() => {
@@ -22,7 +24,7 @@ useEffect(() => {
             <div className="container">
             <ul>
                 <li>Centro de ayuda</li>
-                <li>Cerrar sesion <LogoutIcon /></li>
+                <li onClick={() => logougt()}>Cerrar sesion <LogoutIcon /></li>
             </ul>
             </div>
            

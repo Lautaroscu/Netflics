@@ -14,7 +14,7 @@ export function Header({isLoggedin}) {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-  if(!isLoggedin) {
+  if(isLoggedin) {
         return (
             <header className={`header ${scrolled ? "scrolled" : ""}`}>
                 <img className="logo" src={Logo} alt="logo" />

@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 export function LoginPage({handleAuthenticate}) {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState("");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false); 
@@ -51,14 +50,7 @@ export function LoginPage({handleAuthenticate}) {
  
   
   const handleGoogleSuccess = (credentialResponse) => {
-    console.log("Credential:", credentialResponse);
-    // setToken(credentialResponse.access_token); // Token JWT
-
-    // // Podés decodificarlo si querés ver el usuario (opcional)
-    // const base64Url = credentialResponse.access_token.split(".")[1];
-    // const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    // const userData = JSON.parse(window.atob(base64));
-    // setUser(userData);
+    localStorage.setItem("access_token" , credentialResponse.access_token)
     handleAuthenticate(true)
     navigate("/")
     

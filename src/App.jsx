@@ -12,6 +12,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useState , useEffect } from "react";
 import PricingPage from './pages/Pricing';
 import { AccountPage } from './pages/Account';
+import { Movies } from './pages/Movies';
+import { MoviesByGenre } from './pages/MoviesByGenre';
+import { SeriesByGenre } from './pages/SeriesByGenre';
 
 
 function App() {
@@ -36,7 +39,14 @@ function App() {
 
           <Route path="/login" element={<LoginPage setShowHeader={setShowHeader} handleAuthenticate={setIsAuthenticated} />} />
           <Route path="/series" element={isAuthenticated ? <Series /> : <Navigate to="/login" />} />
+          <Route path="/movies" element={isAuthenticated ? <Movies /> : <Navigate to="/login" />} />
+
           <Route path="/serie/:id" element={isAuthenticated ? <Serie /> : <Navigate to="/login" />} />
+          <Route path="/movie/genre/:id" element={isAuthenticated ? <MoviesByGenre /> : <Navigate to="/login" />} />
+          <Route path="/serie/genre/:id" element={isAuthenticated ? <SeriesByGenre /> : <Navigate to="/login" />} />
+
+
+
           <Route path="/movie/:id" element={isAuthenticated ? <Movie /> : <Navigate to="/login" />} />
           <Route path='/pricing' element={<PricingPage  />}/>
           <Route path='/my-account'  element={<AccountPage setShowHeader={setShowHeader} />} />

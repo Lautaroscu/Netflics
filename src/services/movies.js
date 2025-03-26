@@ -65,4 +65,17 @@ export async function getUpcomingMovies() {
         throw new Error(e)
     }
    }
-   
+   export async function moviesByGenreId(pageNumber , genreId) {
+    try {
+        const promise = await fetch(`${env.BASE_URL}/discover/movie?with_genres=${genreId}&page=${pageNumber}` ,{
+            headers : {
+                'Content-Type' : 'application/json' ,
+                'Authorization' : `Bearer ${env.API_KEY}`
+            }
+        })
+        return await promise.json()
+    }catch(e){
+        throw new Error(e)
+    }
+    
+   }

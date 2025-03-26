@@ -52,6 +52,19 @@ export async function getPopularSeries() {
            throw new Error(e)
        }
    }
-   
+   export async function seriesByGenreId(pageNumber , genreId) {
+    try {
+        const promise = await fetch(`${env.BASE_URL}/discover/tv?with_genres=${genreId}&page=${pageNumber}` ,{
+            headers : {
+                'Content-Type' : 'application/json' ,
+                'Authorization' : `Bearer ${env.API_KEY}`
+            }
+        })
+        return await promise.json()
+    }catch(e){
+        throw new Error(e)
+    }
+    
+   }
 
    

@@ -11,10 +11,9 @@ export default function PricingPage() {
     return (
          <><header className={`header`}>
             <img className="logo" src={Logo} alt="logo" />
-            <nav className="header-nav">
 
 
-                <ul>
+                <ul className="nav">
                     <li><Link to={"/us"}>Nosotros</Link></li>
                     <li><Link to={"/contact"}>Contacto</Link></li>
                     <li><Link to={"/pricing"}>Tipos de planes</Link></li>
@@ -23,7 +22,6 @@ export default function PricingPage() {
                 </ul>
 
 
-            </nav>
 
 
 

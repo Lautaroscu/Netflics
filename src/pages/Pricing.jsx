@@ -10,26 +10,29 @@ export default function PricingPage() {
     
     return (
          <><header className={`header`}>
+            <div className="header-cont">
             <img className="logo" src={Logo} alt="logo" />
 
 
-                <ul className="nav">
-                    <li><Link to={"/us"}>Nosotros</Link></li>
-                    <li><Link to={"/contact"}>Contacto</Link></li>
-                    <li><Link to={"/pricing"}>Tipos de planes</Link></li>
-                    <li><Link to={"/News"}>Novedades</Link></li>
+<ul className="nav">
+    <li><Link to={"/us"}>Nosotros</Link></li>
+    <li><Link to={"/contact"}>Contacto</Link></li>
+    <li><Link to={"/pricing"}>Tipos de planes</Link></li>
+    <li><Link to={"/News"}>Novedades</Link></li>
 
-                </ul>
-
-
+</ul>
 
 
 
-            <ul className="icons-section">
-                <li><Link to={"/login"}>Iniciar Sesion</Link></li>
-                <li><Link to={"/register"}>Registrarse</Link></li>
-            </ul>
 
+
+<ul className="icons-section">
+<li><Link to={"/login"}>Iniciar Sesion</Link></li>
+<li><Link to={"/register"}>Registrarse</Link></li>
+</ul>
+
+            </div>
+           
 
 
 

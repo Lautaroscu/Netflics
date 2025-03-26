@@ -11,12 +11,15 @@ import { LoginPage } from './pages/Login';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useState , useEffect } from "react";
 import PricingPage from './pages/Pricing';
+import { AccountPage } from './pages/Account';
 
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('isAuthenticated') === 'true';
   });
+  const [showFullHeader , setShowHeader]= useState(true)
+
 
   useEffect(() => {
     localStorage.setItem('isAuthenticated', isAuthenticated);
@@ -26,7 +29,7 @@ function App() {
 
 <Router>
       <div className="app">
-       {isAuthenticated && <Header  />} 
+       {isAuthenticated && <Header show={showFullHeader} />} 
         <Routes>
           <Route path="/" element={isAuthenticated ? <Home /> : <PricingPage to="/login" />} />
           <Route path="*" element={<Navigate to="/login" />} />
@@ -36,6 +39,7 @@ function App() {
           <Route path="/serie/:id" element={isAuthenticated ? <Serie /> : <Navigate to="/login" />} />
           <Route path="/movie/:id" element={isAuthenticated ? <Movie /> : <Navigate to="/login" />} />
           <Route path='/pricing' element={<PricingPage  />}/>
+          <Route path='/my-account'  element={<AccountPage setShowHeader={setShowHeader} />} />
         </Routes>
       </div>
     </Router>

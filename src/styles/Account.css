@@ -1,0 +1,93 @@
+.account-page {
+    background: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    position:fixed;
+    margin-bottom: 200px;
+
+}
+.log-out-button a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+.back-button {
+    display: flex;
+    align-items: center;
+    
+    color: white;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 130px;
+    top: 0;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+}
+
+/* Contenedor de cuenta */
+.account-container {
+    width: 1000px;
+    text-align: start;
+}
+
+.account-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.option h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.option p {
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+/* Botón para eliminar cuenta */
+.delete-account-button {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: underline;
+}

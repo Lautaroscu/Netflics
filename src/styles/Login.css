@@ -7,11 +7,9 @@
     margin: 50px auto;
     text-align: center;
     font-family: 'Arial', sans-serif;
-    position: fixed;
-    left: -50%;
-    right: -50%;
-    bottom: 0%;
-   
+    position: relative;
+    bottom: 40px;
+    
    
 }
 
